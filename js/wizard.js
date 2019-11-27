@@ -32,11 +32,11 @@
 	}
 
 	function initiateUpdate() {
-		window.debounce(
-			window.update,
+		window["debounce"](
+			window["update"],
 			coatColorInput.value,
 			eyesColorInput.value
-		);
+		)();
 	}
 
 	window.wizard["eyes"].addEventListener("click", function() {

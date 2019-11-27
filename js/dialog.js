@@ -1,25 +1,26 @@
 "use strict";
 
 (function() {
-	let draggablePic = window.setup.querySelector(".setup-user-pic");
+	let draggableDiv = window.setup.querySelector(".upload");
 
-	draggablePic.addEventListener("mousedown", function(evt) {
+	function Coordinates(coordX, coordY) {
+		(this.x = coordX), (this.y = coordY);
+	}
+
+	draggableDiv.addEventListener("mousedown", function(evt) {
 		evt.preventDefault();
 
-		let startCoords = {
-			x: evt.clientX,
-			y: evt.clientY
-		};
+		let startCoords = new Coordinates(evt.clientX, evt.clientY);
 		let isDragged = false;
 
-		function draggablePicMousemoveHandler(moveEvt) {
+		function draggableDivMousemoveHandler(moveEvt) {
 			moveEvt.preventDefault();
 			isDragged = true;
 
-			let shift = {
-				x: startCoords["x"] - moveEvt.clientX,
-				y: startCoords["y"] - moveEvt.clientY
-			};
+			let shift = new Coordinates(
+				startCoords["x"] - moveEvt.clientX,
+				startCoords["y"] - moveEvt.clientY
+			);
 
 			startCoords = {
 				x: moveEvt.clientX,
@@ -31,34 +32,34 @@
 			window.setup.style.top = window.setup.offsetTop - shift["y"] + "px";
 		}
 
-		function draggablePicMouseupHandler(upEvt) {
+		function draggableDivMouseupHandler(upEvt) {
 			upEvt.preventDefault();
 
 			document.removeEventListener(
 				"mousemove",
-				draggablePicMousemoveHandler
+				draggableDivMousemoveHandler
 			);
 
-			document.removeEventListener("mouseup", draggablePicMouseupHandler);
+			document.removeEventListener("mouseup", draggableDivMouseupHandler);
 
 			if (isDragged) {
-				draggablePic.addEventListener(
+				draggableDiv.addEventListener(
 					"click",
-					draggablePicClickPreventDefaultHandler
+					draggableDivClickPreventDefaultHandler
 				);
 
-				function draggablePicClickPreventDefaultHandler(evt) {
+				function draggableDivClickPreventDefaultHandler(evt) {
 					evt.preventDefault();
 
-					draggablePic.removeEventListener(
+					draggableDiv.removeEventListener(
 						"click",
-						draggablePicClickPreventDefaultHandler
+						draggableDivClickPreventDefaultHandler
 					);
 				}
 			}
 		}
 
-		document.addEventListener("mousemove", draggablePicMousemoveHandler);
-		document.addEventListener("mouseup", draggablePicMouseupHandler);
+		document.addEventListener("mousemove", draggableDivMousemoveHandler);
+		document.addEventListener("mouseup", draggableDivMouseupHandler);
 	});
 })();

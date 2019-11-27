@@ -7,7 +7,7 @@
 			xhr.responseType = "json";
 			xhr.open("GET", GETURL);
 			xhr.addEventListener("load", function() {
-				if (xhr.status === 200) {
+				if (xhr.status === SUCCESS_STATUS) {
 					onLoad(xhr.response);
 				} else {
 					onError(`Статус ответа ${xhr.status}`);
@@ -35,4 +35,5 @@
 
 	const GETURL = "https://js.dump.academy/code-and-magick/data";
 	const POSTURL = "https://js.dump.academy/code-and-magick";
+	const SUCCESS_STATUS = 200;
 })();
