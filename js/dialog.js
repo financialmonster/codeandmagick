@@ -1,65 +1,69 @@
-"use strict";
+import setup from './setup.js';
 
-(function() {
-	let draggableDiv = window.setup.querySelector(".upload");
+function dialog() {
+    const draggableDiv = setup.querySelector('.upload');
+    const bodyCoords = document.body.getBoundingClientRect();
 
-	function Coordinates(coordX, coordY) {
-		(this.x = coordX), (this.y = coordY);
-	}
+    function Coordinates(coordX, coordY) {
+        (this.x = coordX), (this.y = coordY);
+    }
 
-	draggableDiv.addEventListener("mousedown", function(evt) {
-		evt.preventDefault();
+    draggableDiv.addEventListener('mousedown', function(evt) {
+        evt.preventDefault();
 
-		let startCoords = new Coordinates(evt.clientX, evt.clientY);
-		let isDragged = false;
+        let startCoords = new Coordinates(evt.clientX, evt.clientY);
+        let isDragged = false;
 
-		function draggableDivMousemoveHandler(moveEvt) {
-			moveEvt.preventDefault();
-			isDragged = true;
+        function draggableDivMousemoveHandler(moveEvt) {
+            moveEvt.preventDefault();
+            isDragged = true;
 
-			let shift = new Coordinates(
-				startCoords["x"] - moveEvt.clientX,
-				startCoords["y"] - moveEvt.clientY
-			);
+            const setupCoords = setup.getBoundingClientRect();
+            const shift = new Coordinates(startCoords['x'] - moveEvt.clientX, startCoords['y'] - moveEvt.clientY);
 
-			startCoords = {
-				x: moveEvt.clientX,
-				y: moveEvt.clientY
-			};
+            startCoords = {
+                x: moveEvt.clientX,
+                y: moveEvt.clientY
+            };
 
-			window.setup.style.left =
-				window.setup.offsetLeft - shift["x"] + "px";
-			window.setup.style.top = window.setup.offsetTop - shift["y"] + "px";
-		}
+            if (setupCoords.left < bodyCoords.left) {
+                setup.style.left = bodyCoords.left + setup.offsetWidth / 2 + 'px';
+            } else if (setupCoords.right > bodyCoords.right) {
+                setup.style.left = bodyCoords.right - setup.offsetWidth / 2 + 'px';
+            } else {
+                setup.style.left = setup.offsetLeft - shift['x'] + 'px';
+            }
 
-		function draggableDivMouseupHandler(upEvt) {
-			upEvt.preventDefault();
+            if (setupCoords.top < bodyCoords.top) {
+                setup.style.top = bodyCoords.top + 'px';
+            } else if (setupCoords.top > setup.offsetHeight / 2) {
+                setup.style.top = setup.offsetHeight / 2 + 'px';
+            } else {
+                setup.style.top = setup.offsetTop - shift['y'] + 'px';
+            }
+        }
 
-			document.removeEventListener(
-				"mousemove",
-				draggableDivMousemoveHandler
-			);
+        function draggableDivMouseupHandler(upEvt) {
+            upEvt.preventDefault();
 
-			document.removeEventListener("mouseup", draggableDivMouseupHandler);
+            document.removeEventListener('mousemove', draggableDivMousemoveHandler);
 
-			if (isDragged) {
-				draggableDiv.addEventListener(
-					"click",
-					draggableDivClickPreventDefaultHandler
-				);
+            document.removeEventListener('mouseup', draggableDivMouseupHandler);
 
-				function draggableDivClickPreventDefaultHandler(evt) {
-					evt.preventDefault();
+            if (isDragged) {
+                draggableDiv.addEventListener('click', draggableDivClickPreventDefaultHandler);
 
-					draggableDiv.removeEventListener(
-						"click",
-						draggableDivClickPreventDefaultHandler
-					);
-				}
-			}
-		}
+                function draggableDivClickPreventDefaultHandler(evt) {
+                    evt.preventDefault();
 
-		document.addEventListener("mousemove", draggableDivMousemoveHandler);
-		document.addEventListener("mouseup", draggableDivMouseupHandler);
-	});
-})();
+                    draggableDiv.removeEventListener('click', draggableDivClickPreventDefaultHandler);
+                }
+            }
+        }
+
+        document.addEventListener('mousemove', draggableDivMousemoveHandler);
+        document.addEventListener('mouseup', draggableDivMouseupHandler);
+    });
+}
+
+export default dialog;

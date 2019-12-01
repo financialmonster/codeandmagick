@@ -1,11 +1,12 @@
-"use strict";
+import backend from './backend.js';
+import render from './render.js';
 
-(function() {
-	window.update = function(colorOfCoat, colorOfEyes) {
-		let wizardElements = window.backend["response"];
+function update(colorOfCoat, colorOfEyes) {
+    const wizardElements = backend['response'];
 
-		window.render["setRating"](wizardElements, colorOfCoat, colorOfEyes);
-		wizardElements.sort(window.render["sortElements"]);
-		window.render["addElements"](wizardElements);
-	};
-})();
+    render['setRating'](wizardElements, colorOfCoat, colorOfEyes);
+    wizardElements.sort(render['sortElements']);
+    render['addElements'](wizardElements);
+}
+
+export default update;
