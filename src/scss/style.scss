@@ -1,3 +1,5 @@
+$white-color: #ffffff;
+
 html,
 body {
 	margin: 0;
@@ -7,7 +9,7 @@ body {
 	margin: 0 auto;
 
 	font: 20px "PT Mono";
-	color: #ffffff;
+	color: $white-color;
 
 	background: #da641a;
 }
@@ -25,7 +27,7 @@ button {
 	font: bold 20px "PT Mono";
 	line-height: 54px;
 
-	background: #ffffff;
+	background: $white-color;
 	border: 0;
 }
 
@@ -130,7 +132,7 @@ header {
 	z-index: 1;
 
 	font-size: 26px;
-	color: #ffffff;
+	color: $white-color;
 	color: rgba(255, 255, 255, 0.6);
 }
 
@@ -219,9 +221,9 @@ main {
 	font-weight: bold;
 	font-size: 22px;
 	vertical-align: middle;
-	color: #ffffff;
+	color: $white-color;
 
-	border-bottom: dotted 2px #ffffff;
+	border-bottom: dotted 2px $white-color;
 	cursor: pointer;
 }
 
@@ -238,7 +240,7 @@ input[type="radio"]:checked + .reviews-filter-item {
 	line-height: 36px;
 	color: #000000;
 
-	background: #ffffff;
+	background: $white-color;
 	border-bottom: solid 2px;
 	box-shadow: 3px 3px 0 #000000;
 	cursor: auto;
@@ -333,7 +335,7 @@ input[type="radio"]:checked + .reviews-filter-item {
 
 .review-quiz {
 	font-size: 15px;
-	color: #ffffff;
+	color: $white-color;
 	color: rgba(255, 255, 255, 0.5);
 }
 
@@ -348,7 +350,7 @@ input[type="radio"]:checked + .reviews-filter-item {
 }
 
 .review-quiz-answer-active {
-	color: #ffffff;
+	color: $white-color;
 	text-decoration: none;
 
 	cursor: default;
@@ -375,7 +377,7 @@ input[type="radio"]:checked + .reviews-filter-item {
 	line-height: 55px;
 	color: #000000;
 
-	background: #ffffff;
+	background: $white-color;
 	box-shadow: 5px 5px 0 rgba(0, 0, 0, 1);
 }
 
@@ -473,7 +475,7 @@ footer p {
 
 .review-mark-label {
 	background: none;
-	color: #ffffff;
+	color: $white-color;
 	cursor: pointer;
 	height: 30px;
 	margin: 0 10px;
@@ -514,7 +516,7 @@ input[type="radio"]:checked + .review-mark-label {
 	font: 20px/1.5 "PT Mono";
 	color: #000000;
 
-	background: #ffffff;
+	background: $white-color;
 	border: 0;
 }
 
@@ -534,7 +536,7 @@ input[type="radio"]:checked + .review-mark-label {
 
 .review-fields {
 	font-size: 16px;
-	color: #ffffff;
+	color: $white-color;
 	color: rgba(255, 255, 255, 0.6);
 	white-space: normal;
 }
@@ -843,7 +845,7 @@ input[type="radio"]:checked + .review-mark-label {
 
 	font-weight: bold;
 	font-size: 14px;
-	color: #ffffff;
+	color: $white-color;
 }
 
 .upload {

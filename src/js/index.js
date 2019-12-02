@@ -11,3 +11,4 @@ import update from './update.js';
 import wizard from './wizard.js';
 import avatar from './avatar.js';
 avatar();
+import style from '../scss/style.scss';
