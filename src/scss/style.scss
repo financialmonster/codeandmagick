@@ -2,16 +2,15 @@ $white-color: #ffffff;
 
 html,
 body {
+	min-width: 1024px;
 	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 
-	min-width: 1024px;
-	margin: 0 auto;
-
-	font: 20px "PT Mono";
-	color: $white-color;
-
 	background: #da641a;
+
+	font: 20px 'PT Mono';
+	color: $white-color;
 }
 
 h1,
@@ -23,19 +22,20 @@ h2 {
 button {
 	margin-right: 20px;
 	padding: 0 16px;
-
-	font: bold 20px "PT Mono";
-	line-height: 54px;
+	border: 0;
 
 	background: $white-color;
-	border: 0;
+
+	font: bold 20px 'PT Mono';
+	line-height: 54px;
 }
 
 *[tabindex]:focus,
 button:focus,
 input:focus {
-	outline: none;
 	box-shadow: 0 0 10px #fff000;
+
+	outline: none;
 }
 
 form {
@@ -51,11 +51,11 @@ form {
 	z-index: 100;
 
 	min-width: 200px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
 
 	background-color: #414342;
-	border-color: black;
-	border-style: solid;
-	border-width: 2px;
 }
 
 .section-title {
@@ -78,12 +78,12 @@ header {
 	position: relative;
 
 	padding-top: 80px;
-
-	text-align: center;
+	border-bottom: solid 8px #1cb34d;
 
 	background: #2b5cfc;
 	background: linear-gradient(180deg, #0000ff, #94c6fd);
-	border-bottom: solid 8px #1cb34d;
+
+	text-align: center;
 }
 
 .header-title {
@@ -100,7 +100,7 @@ header {
 
 	height: 363px;
 
-	background: url("../img/clouds.png") top center repeat-x;
+	background: url('../img/clouds.png') top center repeat-x;
 }
 
 .header-fence {
@@ -112,7 +112,7 @@ header {
 	height: 48px;
 	margin-left: -400px;
 
-	background: url("../img/fence.gif") no-repeat;
+	background: url('../img/fence.gif') no-repeat;
 }
 
 .header-tree {
@@ -124,7 +124,7 @@ header {
 	height: 137px;
 	margin-left: 300px;
 
-	background: url("../img/tree.gif") no-repeat;
+	background: url('../img/tree.gif') no-repeat;
 }
 
 .header-soon {
@@ -190,11 +190,12 @@ main {
 
 .photogallery-image {
 	display: inline-block;
+
+	overflow: hidden;
+
 	width: 292px;
 	height: 271px;
 	margin: 21px 8px;
-	overflow: hidden;
-
 	border: 0;
 	box-shadow: 7px 10px 0 rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 190, 0.3);
 }
@@ -216,15 +217,16 @@ main {
 
 .reviews-filter-item {
 	display: inline-block;
+
 	margin-right: 50px;
+	border-bottom: dotted 2px $white-color;
+
+	cursor: pointer;
 
 	font-weight: bold;
 	font-size: 22px;
 	vertical-align: middle;
 	color: $white-color;
-
-	border-bottom: dotted 2px $white-color;
-	cursor: pointer;
 }
 
 .reviews-filter input {
@@ -232,18 +234,18 @@ main {
 	left: -1200em;
 }
 
-input[type="radio"]:checked + .reviews-filter-item {
+input[type='radio']:checked + .reviews-filter-item {
 	margin-right: 35px;
 	margin-left: -15px;
 	padding: 0 15px;
+	border-bottom: solid 2px;
+	box-shadow: 3px 3px 0 #000000;
+
+	background: $white-color;
+	cursor: auto;
 
 	line-height: 36px;
 	color: #000000;
-
-	background: $white-color;
-	border-bottom: solid 2px;
-	box-shadow: 3px 3px 0 #000000;
-	cursor: auto;
 }
 
 .review {
@@ -263,26 +265,28 @@ input[type="radio"]:checked + .reviews-filter-item {
 	text-align: center;
 }
 
-.reviews-list-loading:after {
-	content: "Загрузка...";
+.reviews-list-loading::after {
+	content: 'Загрузка...';
 }
 
-.reviews-load-failure:after {
-	content: "";
+.reviews-load-failure::after {
+	content: '';
 
 	display: inline-block;
+
 	width: 40px;
 	height: 40px;
 
-	background: url("../img/icon-cross.png") no-repeat center;
+	background: url('../img/icon-cross.png') no-repeat center;
 }
 
 .review-load-failure .review-author {
 	visibility: hidden;
 }
 
-.review-load-failure .review-author:after {
-	content: "";
+.review-load-failure .review-author::after {
+	content: '';
+
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -290,34 +294,41 @@ input[type="radio"]:checked + .reviews-filter-item {
 	left: 0;
 
 	display: block;
+	opacity: 0.4;
 
-	background: url("../img/icon-cross.png") center no-repeat;
 	border: solid 1px rgba(255, 255, 255, 0.5);
 	border-radius: 50%;
+
+	background: url('../img/icon-cross.png') center no-repeat;
+
 	visibility: visible;
-	opacity: 0.4;
 }
 
 .review-rating {
 	display: block;
+
 	width: 30px;
 	height: 30px;
 
-	background: url("../img/icon-star.png") top left repeat-x;
+	background: url('../img/icon-star.png') top left repeat-x;
 }
 
 .review-rating-one {
 	width: 40px;
 }
+
 .review-rating-two {
 	width: 80px;
 }
+
 .review-rating-three {
 	width: 120px;
 }
+
 .review-rating-four {
 	width: 160px;
 }
+
 .review-rating-five {
 	width: 200px;
 }
@@ -329,7 +340,6 @@ input[type="radio"]:checked + .reviews-filter-item {
 
 	width: 124px;
 	height: 124px;
-
 	border-radius: 50%;
 }
 
@@ -341,19 +351,20 @@ input[type="radio"]:checked + .reviews-filter-item {
 
 .review-quiz-answer {
 	display: inline-block;
+
 	margin: 0 5px;
+
+	cursor: pointer;
 
 	vertical-align: middle;
 	text-decoration: underline;
-
-	cursor: pointer;
 }
 
 .review-quiz-answer-active {
+	cursor: default;
+
 	color: $white-color;
 	text-decoration: none;
-
-	cursor: default;
 }
 
 .reviews-controls {
@@ -363,32 +374,31 @@ input[type="radio"]:checked + .reviews-filter-item {
 .reviews-controls-item {
 	display: inline-block;
 
-	vertical-align: middle;
-
 	cursor: pointer;
+
+	vertical-align: middle;
 }
 
 .reviews-controls-more {
 	margin-right: 26px;
 	padding: 0 30px;
+	box-shadow: 5px 5px 0 rgba(0, 0, 0, 1);
+
+	background: $white-color;
 
 	font-weight: bold;
 	font-size: 20px;
 	line-height: 55px;
 	color: #000000;
-
-	background: $white-color;
-	box-shadow: 5px 5px 0 rgba(0, 0, 0, 1);
 }
 
 .reviews-controls-new {
 	padding: 0 18px;
+	border: solid 1px;
 
 	font-size: 18px;
 	line-height: 36px;
 	color: #000000;
-
-	border: solid 1px;
 }
 
 footer {
@@ -432,7 +442,7 @@ footer p {
 }
 
 .review-form-title {
-	font-family: "PT Mono";
+	font-family: 'PT Mono';
 	text-align: left;
 }
 
@@ -444,17 +454,16 @@ footer p {
 
 	padding: 0 10px;
 
+	cursor: pointer;
+
 	font-size: 45px;
 	text-align: center;
-
-	cursor: pointer;
 }
 
 .review-form-group {
 	margin: 0;
 	margin-bottom: 15px;
 	padding: 0;
-
 	border: 0;
 }
 
@@ -467,42 +476,50 @@ footer p {
 	margin-left: 15px;
 }
 
-.review-form-group-mark input[type="radio"] {
+.review-form-group-mark input[type='radio'] {
 	position: absolute;
 
 	visibility: hidden;
 }
 
 .review-mark-label {
-	background: none;
-	color: $white-color;
-	cursor: pointer;
+	position: absolute;
+
+	width: 40px;
 	height: 30px;
 	margin: 0 10px;
-	position: absolute;
+
+	background: none;
+	cursor: pointer;
+
+	color: $white-color;
 	text-indent: -100em;
-	width: 40px;
 }
 
 .review-mark-label-1 {
 	width: 40px;
 }
+
 .review-mark-label-2 {
 	width: 80px;
 }
+
 .review-mark-label-3 {
 	width: 120px;
 }
+
 .review-mark-label-4 {
 	width: 160px;
 }
+
 .review-mark-label-5 {
-	background: url("../img/icon-star-inactive-form.png") repeat-x;
 	width: 200px;
+
+	background: url('../img/icon-star-inactive-form.png') repeat-x;
 }
 
-input[type="radio"]:checked + .review-mark-label {
-	background: url("../img/icon-star.png") repeat-x;
+input[type='radio']:checked + .review-mark-label {
+	background: url('../img/icon-star.png') repeat-x;
 }
 
 .review-form-label {
@@ -512,12 +529,12 @@ input[type="radio"]:checked + .review-mark-label {
 
 .review-form-field {
 	padding: 5px;
-
-	font: 20px/1.5 "PT Mono";
-	color: #000000;
+	border: 0;
 
 	background: $white-color;
-	border: 0;
+
+	font: 20px/1.5 'PT Mono';
+	color: #000000;
 }
 
 .review-form-field-name {
@@ -542,15 +559,16 @@ input[type="radio"]:checked + .review-mark-label {
 }
 
 .review-fields-label {
-	text-decoration: underline;
-
 	cursor: pointer;
+
+	text-decoration: underline;
 }
 
 .footer-link {
 	position: relative;
 
 	display: block;
+
 	width: 250px;
 	margin: 0 auto;
 	padding-top: 50px;
@@ -569,29 +587,29 @@ input[type="radio"]:checked + .review-mark-label {
 }
 
 .setup {
-	width: 800px;
-
 	position: absolute;
-	left: 50%;
 	top: 80px;
+	left: 50%;
+	z-index: 3;
+
 	transform: translateX(-50%);
 
-	background: #89a1fd;
-	box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.25);
 	box-sizing: border-box;
-	color: #000;
+	width: 800px;
+	box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.25);
 
-	z-index: 3;
+	background: #89a1fd;
+
+	color: #000000;
 }
 
 .setup-open-icon {
 	position: absolute;
 	top: 100px;
 	right: 100px;
+	z-index: 2;
 
 	cursor: pointer;
-
-	z-index: 2;
 }
 
 .setup-open-icon:hover {
@@ -608,28 +626,29 @@ input[type="radio"]:checked + .review-mark-label {
 
 .setup-open-icon,
 .setup-user-pic {
-	width: 40px;
-	height: 40px;
-
 	display: inline-block;
 
-	margin-right: 5px;
-	margin-top: -10px;
-	border-radius: 40px;
 	overflow: hidden;
+
+	width: 40px;
+	height: 40px;
+	margin-top: -10px;
+	margin-right: 5px;
+	border-radius: 40px;
+
 	vertical-align: middle;
 }
 
 .setup-user-name {
-	background: transparent;
-	border: 0;
-	color: #fff;
-
-	font-family: "PT Mono", serif;
-	font-size: 30px;
-	font-weight: 900;
-
 	width: 500px;
+	border: 0;
+
+	background: transparent;
+
+	font-weight: 900;
+	font-size: 30px;
+	font-family: 'PT Mono', serif;
+	color: #ffffff;
 }
 
 .setup-user-name:valid {
@@ -641,56 +660,57 @@ input[type="radio"]:checked + .review-mark-label {
 }
 
 .setup-user-name:focus {
-	border-bottom: solid 1px #000;
+	border-bottom: solid 1px #000000;
+
 	outline: none;
 }
 
 .setup-close {
-	float: right;
-
 	top: 20px;
 	right: 20px;
-
-	font-size: 70px;
-	color: #000;
-	cursor: pointer;
+	float: right;
 
 	transform: translateY(-0.3em);
+
+	cursor: pointer;
+
+	font-size: 70px;
+	color: #000000;
 }
 
 .setup-artifacts-shop {
-	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
 
-	padding-top: 20px;
-	padding-bottom: 20px;
+	display: flex;
 
 	width: 716px;
 	height: 65px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .setup-player {
-	padding-top: 20px;
 	position: relative;
 
 	height: 300px;
 	min-height: 300px;
+	padding-top: 20px;
 }
 
 .setup-wizard {
-	width: 250px;
-	height: 250px;
-
 	position: absolute;
 	bottom: 0;
 	left: 50px;
+
+	width: 250px;
+	height: 250px;
 }
 
 .setup-fireball-wrap {
 	position: absolute;
-	left: 300px;
 	top: 0;
+	left: 300px;
 
 	width: 75px;
 	height: 75px;
@@ -699,33 +719,33 @@ input[type="radio"]:checked + .review-mark-label {
 }
 
 .setup-fireball {
-	background: url("../img/fireball-mask.png");
-	background-size: 75px 75px;
 	width: 75px;
 	height: 75px;
+
+	background: url('../img/fireball-mask.png');
+	background-size: 75px 75px;
 }
 
 .setup-artifacts {
 	position: absolute;
-	bottom: 0;
 	right: 46px;
-
-	display: flex;
+	bottom: 0;
 	flex-wrap: wrap;
 	justify-content: space-between;
+
+	display: flex;
 
 	width: 260px;
 	height: 260px;
 }
 
 .setup-artifacts-cell {
+	box-sizing: border-box;
 	width: 65px;
 	height: 65px;
-
-	background: rgba(0, 0, 0, 0.1);
 	border: solid 1px rgba(255, 255, 255, 0.5);
 
-	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.1);
 }
 
 .setup-artifacts-cell:last-child {
@@ -733,39 +753,41 @@ input[type="radio"]:checked + .review-mark-label {
 }
 
 .setup-footer {
-	border-top: 10px solid #1cb34d;
 	padding-bottom: 20px;
+	border-top: 10px solid #1cb34d;
 
 	background-color: #da641a;
 }
 
 .setup-similar-title {
-	color: #fff;
-
 	margin-left: 20px;
+
+	color: #ffffff;
 }
 
 .setup-similar-list {
-	display: flex;
 	flex-direction: row;
+	flex-wrap: nowrap;
 	justify-content: space-between;
 
-	margin-left: 20px;
-	margin-right: 20px;
+	display: flex;
 
-	flex-wrap: nowrap;
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 .setup-similar-item {
-	max-width: 150px;
 	overflow: hidden;
+
+	max-width: 150px;
+
 	text-overflow: ellipsis;
 }
 
 .setup-similar-label {
 	margin: 5px;
 
-	color: #fff;
+	color: #ffffff;
 }
 
 .setup-similar-content {
@@ -773,28 +795,30 @@ input[type="radio"]:checked + .review-mark-label {
 
 	width: 150px;
 	height: 150px;
+	box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.25);
 
 	background-color: #414342;
-	box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.25);
 }
 
 .setup-similar-wizard {
 	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
 	bottom: 0;
+	left: 50%;
 
-	margin: 0 auto;
+	transform: translateX(-50%);
 
 	width: 100px;
+	margin: 0 auto;
 }
 
 .setup-submit {
 	display: block;
+
 	margin: 20px auto 0;
 
 	background: #1cb34d;
-	color: #fff;
+
+	color: #ffffff;
 }
 
 .setup-submit:disabled {
@@ -811,13 +835,14 @@ input[type="radio"]:checked + .review-mark-label {
 
 .overlay-gallery-control {
 	display: inline-block;
+
 	width: 30px;
 	height: 46px;
 
-	vertical-align: middle;
-
-	background: url("../img/arrows-sprite.png") no-repeat;
+	background: url('../img/arrows-sprite.png') no-repeat;
 	cursor: pointer;
+
+	vertical-align: middle;
 }
 
 .overlay-gallery-control-right {
@@ -828,14 +853,13 @@ input[type="radio"]:checked + .review-mark-label {
 	position: relative;
 
 	display: inline-block;
+
 	min-width: 300px;
 	min-height: 300px;
-
-	vertical-align: middle;
+	border: dotted 1px rgba(255, 255, 255, 0.2);
 
 	font-size: 0;
-
-	border: dotted 1px rgba(255, 255, 255, 0.2);
+	vertical-align: middle;
 }
 
 .overlay-gallery-preview-number {
@@ -854,7 +878,6 @@ input[type="radio"]:checked + .review-mark-label {
 	display: inline-block;
 
 	box-sizing: border-box;
-
 	width: 40px;
 	min-width: 40px;
 	max-width: 40px;
@@ -862,33 +885,38 @@ input[type="radio"]:checked + .review-mark-label {
 }
 
 .upload .setup-user-pic {
-	display: block;
-	margin: 0;
-
 	position: absolute;
-	left: 0;
 	top: 0;
+	left: 0;
+
+	display: block;
+
+	margin: 0;
 }
 
 .upload input {
 	position: absolute;
+	top: 0;
+	left: 0;
 	z-index: 0;
+
 	opacity: 0;
+
 	width: 100%;
 	height: 100%;
-
-	left: 0;
-	top: 0;
 }
 
 .notification {
 	position: fixed;
-	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	left: 50%;
 	z-index: 101;
-	font-size: 48px;
+
+	transform: translate(-50%, -50%);
+
 	background-color: white;
-	color: red;
+
+	font-size: 48px;
 	text-align: center;
+	color: red;
 }
